@@ -1,0 +1,20 @@
+{% extends '_base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+    HobbyNet|Event SignUp
+{% endblock title %}
+
+
+{% block content %}
+    <h2> Request to join {{ event.title }}</h2>
+    <p> By {{ event.organizer.first_name }} {{ event.organizer.last_name }} ({{ event.organizer.email }}) | {{ event.datetime }}</p>
+
+    <form class="post-form" action="/admin/" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <button class="btn btn-primary" type="submit"> Send Request </button>
+    </form>
+{% endblock content %}

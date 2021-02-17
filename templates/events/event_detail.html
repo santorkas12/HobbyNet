@@ -1,0 +1,51 @@
+{% extends '_base.html' %}
+
+{% block title %}
+    Event | {{ event.title }}
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="event-detail">
+        <!--<img class="img-fluid" src="{{ event.cover_img.url }}" alt="{{ event.title }}"> -->
+        <h3 class="d-inline-block mt-3">{{ event.title }}</h3>
+        <div class="d-inline-block align-middle mb-2">
+            <a class="badge badge-pill badge-secondary" href="#"> {{ event.get_category_display }} </a>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col col-sm-8">
+                <h5> Event Description </h5>
+                <p> This is the event description where the author will waffle a lot.</p>
+            </div>
+
+            <div class="col col-sm-4 text-center">
+                <a class="event-author-profile" href="{{ event.organizer.profile.get_absolute_url }}">
+                    <img class="rounded-circle account-img border border-10" src="{{ event.organizer.profile.image.url }}" height="100" width="100">
+                    <h5 class="event-author" style="color: black;"> {{ event.organizer.first_name }} {{ event.organizer.last_name }} </h5>
+                </a>
+
+                <p> {{ event.datetime }} | Insert event location</p>
+            </div>
+
+        </div>
+
+
+        <h5> Interested in this event?</h5>
+        <a class="btn btn-primary" href="{% url 'event_signup' event.pk %}"> Request to join</a>
+    </div>
+
+
+
+
+
+    <div class="map mt-5 text-center">
+        <iframe width="100%" height="400" frameborder="0" style="border:0;" class="embed-responsive-item" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCp3HzqcxwfAqFRUqafdwEvfexg-EaWIQQ&q=Limassol, Cyprus"></iframe>
+    </div>
+
+
+
+
+</div>
+{% endblock content %}
+

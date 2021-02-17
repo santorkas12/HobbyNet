@@ -1,0 +1,57 @@
+{% extends '_base.html' %}
+
+{% block title %}
+    HobbyNet
+{% endblock title %}
+
+{% block content %}
+
+        {% if user.is_authenticated %}
+        <div class="container" id="greeting">
+            <script>
+                var d = new Date();
+                var time = d.getHours();
+
+                if (time < 12) {
+                  document.write("<h3> Good morning, {{ user.first_name }}</h3>");
+                }
+                else if (time > 12 && time < 19) {
+                  document.write("<h3> Good afternoon, {{ user.first_name }}</h3>");
+                }
+                else {
+                  document.write("<h3> Good evening, {{ user.first_name }}</h3>");
+                }
+            </script>
+
+            <div class="d-flex justify-content-center mt-5" id="eventsearch">
+                <input class="form-control w-50 text-center" type="text" placeholder="Search Events" aria-label="Search">
+            </div>
+        </div>
+
+
+        {% else %}
+        <div class="container-flex mt-5">
+            <div class="text-center">
+            <h5 class="text-center"> Meet like-minded people </h5>
+            <h5 class="text-center"> Practice your interests </h5>
+            <h5 class="text-center"> Improve your life</h5>
+            <a href="{% url 'account_signup' %}" class="btn btn-outline-secondary mt-2" > Get Started </a>
+            <div id="home-carousel" class="carousel slide mt-5" data-ride="carousel" data-interval="5000"> <!-- Carousel without indicators -->
+
+                <div class="carousel-inner" style="width:100%; max-height:600px;">
+                    <div class="carousel-item active">
+                        <img src="\media\pics\carousel1.jpg" alt="natura1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="\media\pics\carousel2.jpg" alt="natura2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="\media\pics\carousel3.jpg" alt="natura3">
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            </div>
+        </div>
+
+{% endblock content %}

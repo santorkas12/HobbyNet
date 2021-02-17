@@ -1,0 +1,26 @@
+.border-10 {
+    border-width:5px !important;
+}
+
+.mt-n2 {
+  margin-top: -0.50rem !important;
+}
+
+.mt-n4 {
+  margin-top: -1.00rem !important;
+}
+
+
+/* Dropdown List Base Template */
+.dropdown-item {
+  font-size: 14px;
+}
+
+.dropdown-item:hover {
+  background-color: #6c757d;
+}
+
+.nav-item {
+  color: black;
+}
+
